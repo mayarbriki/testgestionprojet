@@ -46,6 +46,22 @@ public class Projetcontroller {
             iprojetService.deleteprojet(String.valueOf(id));
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+    @PutMapping("/assigndetail/{projetId}/{projetDetailId}")
+    public ResponseEntity<Projet> assignProjetDetailToProjet(
+            @PathVariable String projetId,
+            @PathVariable Long projetDetailId) {
+        Projet updatedProjet = iprojetService.assignProjetDetailToProjet(projetId, projetDetailId);
+        return new ResponseEntity<>(updatedProjet, HttpStatus.OK);
     }
+    @PutMapping("/assignEquipe/{projetId}/{equipeId}")
+    public ResponseEntity<Projet> aassignProjetToEquipe(
+            @PathVariable String projetId,
+            @PathVariable Integer equipeId) {
+        Projet updatedProjet = iprojetService.assignProjetToEquipe (projetId, equipeId);
+        return new ResponseEntity<>(updatedProjet, HttpStatus.OK);
+    }
+
+
+}
 
 

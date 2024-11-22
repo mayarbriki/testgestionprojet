@@ -35,4 +35,5 @@ equipeRepository.deleteById(Math.toIntExact(id));
     public Equipe retrieveequipe(Long id) {
         return equipeRepository.findById(Math.toIntExact(id)).get();
     }
+
 }

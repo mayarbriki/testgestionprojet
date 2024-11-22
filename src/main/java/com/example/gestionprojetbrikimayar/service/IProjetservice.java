@@ -12,5 +12,8 @@ public interface IProjetservice {
     Projet updateprojet(Projet projet );
     void deleteprojet(String id) ;
     Projet retrieveprojet(String id) ;
+    Projet assignProjetDetailToProjet(String projetId, Long projetDetailId);
+
+    Projet assignProjetToEquipe(String projetId, Integer equipeId);
 
 }
