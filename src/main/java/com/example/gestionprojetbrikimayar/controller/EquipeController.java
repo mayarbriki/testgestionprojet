@@ -32,4 +32,9 @@ public class EquipeController {
     public void removeEquipe(@PathVariable("Equipe-id") Integer id) {
         equipeService.deleteequipe(Long.valueOf(id));
     }
+    @PutMapping("/{id}/nom")
+    public void updateEquipeName(@PathVariable("id") Integer idEquipe, @RequestParam("nom") String nom) {
+        equipeService.updateEquipeName(idEquipe, nom);
+    }
+
 }

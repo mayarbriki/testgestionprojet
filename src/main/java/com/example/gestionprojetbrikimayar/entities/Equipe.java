@@ -18,6 +18,7 @@ public class Equipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
     private String nom ;
+
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Projet> projets;
 }

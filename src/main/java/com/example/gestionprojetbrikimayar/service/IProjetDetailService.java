@@ -11,4 +11,5 @@ public interface IProjetDetailService {
     List<ProjetDetail> getprojetdetail() ;
     ProjetDetail updateBloc(ProjetDetail projetDetail );
     void deleteprojetdetail(Long id) ;
+    public List<ProjetDetail>getbytechnologie(String technologie);
 }

@@ -15,5 +15,7 @@ public interface IProjetservice {
     Projet assignProjetDetailToProjet(String projetId, Long projetDetailId);
 
     Projet assignProjetToEquipe(String projetId, Integer equipeId);
+    Projet addProjetAndAssignProjetToProjetDetail(Projet projet, Long projetDetailId);
+    List<Projet> getProjetsByCoutAndTechnologie(Long cout, String technologie);
 
 }

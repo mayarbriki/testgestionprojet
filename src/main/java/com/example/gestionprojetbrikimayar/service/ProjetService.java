@@ -61,5 +61,23 @@ projetRepository.deleteById(id);
             equipeRepository.save(equipe);
             return projet;    }
 
+    @Override
+    public Projet addProjetAndAssignProjetToProjetDetail(Projet projet, Long projetDetailId) {
+        // Find the ProjetDetail by its ID
+        ProjetDetail projetDetail = projetDetailRepository.findById(projetDetailId)
+                .orElseThrow(() -> new RuntimeException("ProjetDetail not found"));
 
+        // Assign the ProjetDetail to the Projet
+        projet.setProjetDetail(projetDetail);
+
+        // Save the Projet, which will automatically update the relationship
+        return projetRepository.save(projet);
+    }
+
+    public List<Projet> getProjetsByCoutAndTechnologie(Long cout, String technologie) {
+        return projetRepository.findProjetsByCoutAndTechnologie(cout, technologie);
+    }
 }
+
+
+

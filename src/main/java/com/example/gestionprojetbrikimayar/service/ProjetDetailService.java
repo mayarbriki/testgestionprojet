@@ -27,4 +27,10 @@ public class ProjetDetailService implements IProjetDetailService{
     public void deleteprojetdetail(Long id) {
         projetDetailRepository.deleteById(id);
     }
+
+    @Override
+    public List<ProjetDetail> getbytechnologie(String technologie) {
+        return projetDetailRepository.findByTechnologieContaining(technologie);
+
+    }
 }

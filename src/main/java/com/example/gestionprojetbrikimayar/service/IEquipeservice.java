@@ -13,4 +13,6 @@ public interface IEquipeservice {
     void deleteequipe(Long id) ;
     Equipe retrieveequipe(Long id) ;
 
+    void updateEquipeName(Integer idEquipe, String nom);
+
 }

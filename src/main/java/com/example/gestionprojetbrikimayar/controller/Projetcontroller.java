@@ -2,6 +2,7 @@ package com.example.gestionprojetbrikimayar.controller;
 
 import com.example.gestionprojetbrikimayar.entities.Projet;
 import com.example.gestionprojetbrikimayar.service.IProjetservice;
+import com.example.gestionprojetbrikimayar.service.ProjetService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,7 +61,17 @@ public class Projetcontroller {
         Projet updatedProjet = iprojetService.assignProjetToEquipe (projetId, equipeId);
         return new ResponseEntity<>(updatedProjet, HttpStatus.OK);
     }
-
+    @PostMapping("/addAndAssign")
+    public ResponseEntity<Projet> addProjetAndAssignToProjetDetail(
+            @RequestBody Projet projet, // Assuming the Projet is sent as a request body
+            @RequestParam Long projetDetailId) {  // ProjetDetail ID as a query parameter
+        Projet updatedProjet = iprojetService.addProjetAndAssignProjetToProjetDetail(projet, projetDetailId);
+        return new ResponseEntity<>(updatedProjet, HttpStatus.CREATED);
+    }
+    @GetMapping("/projetjpql")
+    public List<Projet> getProjets(@RequestParam Long cout, @RequestParam String technologie) {
+        return iprojetService.getProjetsByCoutAndTechnologie(cout, technologie);
+    }
 
 }
 

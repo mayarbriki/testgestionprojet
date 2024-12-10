@@ -47,4 +47,10 @@ public class Projetdetailcontroller {
         iprojetService.deleteprojetdetail(Long.valueOf(String.valueOf(id)));
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @GetMapping("/getbytechnologie/{technologie}")
+    public List <ProjetDetail>recherche(@PathVariable String technologie){
+      return   iprojetService.getbytechnologie(technologie);
+
+    }
+
 }

@@ -36,4 +36,9 @@ equipeRepository.deleteById(Math.toIntExact(id));
         return equipeRepository.findById(Math.toIntExact(id)).get();
     }
 
+    @Override
+    public void updateEquipeName(Integer idEquipe, String nom) {
+        equipeRepository.updateEquipeByNom(nom, idEquipe);
+    }
+
 }
